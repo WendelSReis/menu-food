@@ -20,7 +20,6 @@ public class FoodController {
     public void saveFood(@RequestBody FoodRequestDTO data){
         Food foodData = new Food(data);
         repository.save(foodData);
-        return;
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
