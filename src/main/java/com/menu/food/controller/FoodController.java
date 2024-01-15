@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("food")
 public class FoodController {
+    
     @Autowired
     private FoodRepository repository;
 
@@ -18,6 +19,7 @@ public class FoodController {
     @PostMapping
     public void saveFood(@RequestBody FoodRequestDTO data){
         Food foodData = new Food(data);
+        
         repository.save(foodData);
     }
 
@@ -26,6 +28,7 @@ public class FoodController {
     public List<FoodResponseDTO> getAll(){
 
         List<FoodResponseDTO> foodList = repository.findAll().stream().map(FoodResponseDTO::new).toList();
+        
         return foodList;
     }
 }
